@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://mustafa10020.github.io/aljehbiz/sitemap.xml
