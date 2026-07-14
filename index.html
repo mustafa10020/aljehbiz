@@ -133,9 +133,11 @@
         .btn-email:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(200,164,78,0.3); }
         .footer { background: var(--dark); color: var(--white); padding: 3rem 1rem 1.5rem; text-align: center; }
         .footer-brand { font-size: 1.8rem; font-weight: 900; color: var(--primary); margin-bottom: 0.5rem; }
-        .nav-links { display: flex; justify-content: center; gap: 1.5rem; padding: 1rem; flex-wrap: wrap; background: rgba(0,0,0,0.2); }
-        .nav-links a { color: rgba(255,255,255,0.7); text-decoration: none; font-weight: 600; font-size: 0.95rem; transition: color 0.3s; }
-        .nav-links a:hover { color: var(--accent); }
+        .nav-links { display: flex; justify-content: center; gap: 2rem; padding: 0.9rem 1rem; flex-wrap: wrap; background: linear-gradient(90deg, #0d1b2a, #162240, #0d1b2a); border-top: 1px solid rgba(200,164,78,0.2); border-bottom: 1px solid rgba(200,164,78,0.15); }
+        .nav-links a { color: #e4c76b; text-decoration: none; font-weight: 800; font-size: 1rem; transition: all 0.3s; letter-spacing: 0.3px; position: relative; padding: 0.2rem 0; }
+        .nav-links a::after { content: ''; position: absolute; bottom: -2px; left: 0; right: 0; height: 2px; background: #c8a44e; transform: scaleX(0); transition: transform 0.3s; }
+        .nav-links a:hover { color: #f0d87a; }
+        .nav-links a:hover::after { transform: scaleX(1); }
         .footer-links { display: flex; justify-content: center; gap: 2rem; margin: 1.5rem 0; flex-wrap: wrap; }
         .footer-links a { color: rgba(255,255,255,0.6); text-decoration: none; font-weight: 600; transition: color 0.3s; }
         .footer-links a:hover { color: var(--accent); }
