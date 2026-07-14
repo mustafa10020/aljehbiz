@@ -3,281 +3,293 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>الجهبذ للخدمات والاستشارات</title>
+    <title>الجهبذ للخدمات والاستشارات | Al-Jehbiz</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
+        :root { --primary: #c8a44e; --primary-dark: #a8842e; --secondary: #0a1628; --secondary-light: #162240; --accent: #d4a853; --light: #f8f9fa; --dark: #0d1b2a; --white: #ffffff; --shadow: 0 10px 40px rgba(0,0,0,0.12); --shadow-hover: 0 20px 60px rgba(0,0,0,0.18); }
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            font-family: 'Segoe UI', Tahoma, Arial, sans-serif;
-            background: linear-gradient(135deg, #0a1628 0%, #1a2a4a 50%, #0d1b3e 100%);
-            min-height: 100vh;
-            color: #e0e0e0;
-        }
-        /* CTA Strip */
-        .cta-strip {
-            background: linear-gradient(90deg, #c9a84c, #e4c76b, #c9a84c);
-            padding: 6px 0;
-            text-align: center;
-            direction: ltr;
-            font-size: 13px;
-        }
-        .cta-strip a, .cta-strip span {
-            display: inline-block;
-            vertical-align: middle;
-        }
-        .cta-strip a {
-            color: #0a1628;
-            text-decoration: none;
-            font-weight: 700;
-            padding: 2px 10px;
-            border-radius: 3px;
-            transition: all 0.2s;
-        }
-        .cta-strip a:hover { background: rgba(10,22,40,0.15); }
-        .cta-strip span.sep { color: #0a1628; margin: 0 6px; opacity: 0.6; }
-        /* Container */
-        .container {
-            max-width: 600px;
-            margin: 0 auto;
-            padding: 30px 20px 50px;
-        }
-        /* Hero */
-        .hero {
-            text-align: center;
-            margin-bottom: 35px;
-        }
-        .hero h1 {
-            font-size: 38px;
-            font-weight: 700;
-            color: #e4c76b;
-            margin-bottom: 8px;
-            letter-spacing: 1px;
-        }
-        .hero .subtitle {
-            font-size: 15px;
-            color: #aab;
-            line-height: 1.7;
-        }
-        .hero .subtitle span {
-            color: #e4c76b;
-        }
-        /* Services */
-        .section-title {
-            font-size: 20px;
-            font-weight: 600;
-            color: #e4c76b;
-            text-align: center;
-            margin-bottom: 18px;
-            position: relative;
-        }
-        .section-title::after {
-            content: '';
-            display: block;
-            width: 60px;
-            height: 2px;
-            background: #c9a84c;
-            margin: 8px auto 0;
-            border-radius: 2px;
-        }
-        .services-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 10px;
-            margin-bottom: 30px;
-        }
-        .service-card {
-            background: rgba(255,255,255,0.05);
-            border: 1px solid rgba(255,255,255,0.08);
-            border-radius: 10px;
-            padding: 14px 12px;
-            text-align: center;
-            transition: all 0.25s;
-            cursor: default;
-        }
-        .service-card:hover {
-            background: rgba(255,255,255,0.09);
-            border-color: rgba(201,168,76,0.3);
-            transform: translateY(-2px);
-        }
-        .service-card .icon { font-size: 24px; margin-bottom: 4px; }
-        .service-card .name { font-size: 13px; font-weight: 600; color: #ddd; }
-        /* Contact Form */
-        .contact-form {
-            background: rgba(255,255,255,0.04);
-            border: 1px solid rgba(255,255,255,0.08);
-            border-radius: 14px;
-            padding: 28px 24px;
-            margin-bottom: 25px;
-        }
-        .contact-form input, .contact-form textarea {
-            width: 100%;
-            padding: 12px 14px;
-            margin-bottom: 12px;
-            background: rgba(255,255,255,0.06);
-            border: 1px solid rgba(255,255,255,0.12);
-            border-radius: 8px;
-            color: #fff;
-            font-size: 14px;
-            font-family: inherit;
-            transition: border 0.2s;
-        }
-        .contact-form input:focus, .contact-form textarea:focus {
-            outline: none;
-            border-color: #c9a84c;
-        }
-        .contact-form input::placeholder, .contact-form textarea::placeholder { color: #889; }
-        .contact-form textarea { resize: vertical; min-height: 90px; }
-        .contact-form button {
-            width: 100%;
-            padding: 12px;
-            background: linear-gradient(90deg, #c9a84c, #e4c76b);
-            color: #0a1628;
-            border: none;
-            border-radius: 8px;
-            font-size: 16px;
-            font-weight: 700;
-            cursor: pointer;
-            transition: opacity 0.2s;
-        }
-        .contact-form button:hover { opacity: 0.9; }
-        .cta-note {
-            font-size: 12px;
-            color: #778;
-            text-align: center;
-            margin-top: 8px;
-        }
-        /* CTA Strip 2 */
-        .cta-strip-2 {
-            text-align: center;
-            font-size: 13px;
-            padding: 12px 0;
-            border-top: 1px solid rgba(255,255,255,0.06);
-            border-bottom: 1px solid rgba(255,255,255,0.06);
-            margin-bottom: 25px;
-            direction: ltr;
-        }
-        .cta-strip-2 a {
-            color: #e4c76b;
-            text-decoration: none;
-            font-weight: 700;
-            padding: 2px 8px;
-            transition: color 0.2s;
-        }
-        .cta-strip-2 a:hover { color: #f0d87a; }
-        .cta-strip-2 span.sep { color: #556; margin: 0 6px; }
-        /* Footer */
-        .footer {
-            text-align: center;
-            font-size: 12px;
-            color: #556;
-            padding-top: 20px;
-        }
-        .footer a { color: #778; text-decoration: none; }
-        .footer a:hover { color: #e4c76b; }
-        @media (max-width: 480px) {
-            .hero h1 { font-size: 28px; }
-            .services-grid { grid-template-columns: 1fr 1fr; gap: 8px; }
-            .contact-form { padding: 20px 16px; }
+        body { font-family: 'Cairo', sans-serif; background: var(--light); color: var(--dark); overflow-x: hidden; line-height: 1.8; }
+        .hero { min-height: 100vh; background: linear-gradient(135deg, var(--secondary) 0%, #050d1a 100%); position: relative; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+        .hero::before { content: ''; position: absolute; inset: 0; background: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23c8a44e' fill-opacity='0.04'%3E%3Cpath d='M50 50h-4v-4h4v4zm0-40h-4v4h4v-4zm-40 40h-4v4h4v-4zm0-40h-4v4h4v-4z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"); opacity: 0.6; }
+        .hero-glow { position: absolute; width: 500px; height: 500px; border-radius: 50%; background: radial-gradient(circle, rgba(200,164,78,0.08) 0%, transparent 70%); top: 50%; left: 50%; transform: translate(-50%, -50%); animation: glowPulse 4s ease-in-out infinite; }
+        @keyframes glowPulse { 0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.4; } 50% { transform: translate(-50%, -50%) scale(1.5); opacity: 0.8; } }
+        .hero-content { position: relative; z-index: 2; text-align: center; padding: 2rem; max-width: 950px; }
+        .hero-logo { width: 100px; height: 100px; margin: 0 auto 1.5rem; background: linear-gradient(135deg, var(--primary), var(--primary-dark)); border-radius: 24px; display: flex; align-items: center; justify-content: center; font-size: 2.8rem; color: var(--secondary); box-shadow: 0 15px 40px rgba(200,164,78,0.3); animation: fadeInDown 0.8s ease; }
+        .hero-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(200,164,78,0.15); border: 1px solid rgba(200,164,78,0.3); color: var(--primary); padding: 8px 22px; border-radius: 50px; font-size: 0.9rem; font-weight: 700; margin-bottom: 1.5rem; animation: fadeInDown 0.8s ease; }
+        .hero h1 { font-size: 3.5rem; font-weight: 900; color: var(--white); margin-bottom: 0.8rem; text-shadow: 0 4px 30px rgba(0,0,0,0.3); animation: fadeInUp 0.8s ease 0.2s both; }
+        .hero h1 span { color: var(--primary); position: relative; }
+        .hero h1 span::after { content: ''; position: absolute; bottom: -5px; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, transparent, var(--primary), transparent); }
+        .hero-subtitle { font-size: 1.3rem; color: rgba(255,255,255,0.75); margin-bottom: 2rem; animation: fadeInUp 0.8s ease 0.4s both; }
+        .hero-features { display: flex; justify-content: center; gap: 2.5rem; margin-bottom: 2.5rem; flex-wrap: wrap; animation: fadeInUp 0.8s ease 0.6s both; }
+        .hero-feature { display: flex; align-items: center; gap: 10px; color: rgba(255,255,255,0.85); font-weight: 600; }
+        .hero-feature i { color: var(--accent); font-size: 1.2rem; }
+        .hero-cta { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; animation: fadeInUp 0.8s ease 0.8s both; }
+        .btn { display: inline-flex; align-items: center; gap: 10px; padding: 16px 38px; border-radius: 14px; font-size: 1.05rem; font-weight: 700; text-decoration: none; transition: all 0.3s ease; cursor: pointer; border: none; font-family: 'Cairo', sans-serif; }
+        .btn-primary { background: linear-gradient(135deg, var(--primary), var(--primary-dark)); color: var(--secondary); box-shadow: 0 8px 30px rgba(200,164,78,0.3); }
+        .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 12px 40px rgba(200,164,78,0.4); }
+        .btn-outline { background: transparent; color: var(--white); border: 2px solid rgba(200,164,78,0.4); }
+        .btn-outline:hover { background: rgba(200,164,78,0.1); border-color: var(--primary); }
+        .scroll-indicator { position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%); color: rgba(255,255,255,0.4); animation: bounce 2s infinite; cursor: pointer; }
+        @keyframes bounce { 0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); } 40% { transform: translateX(-50%) translateY(-12px); } 60% { transform: translateX(-50%) translateY(-6px); } }
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes fadeInDown { from { opacity: 0; transform: translateY(-20px); } to { opacity: 1; transform: translateY(0); } }
+        .cta-strip { background: linear-gradient(135deg, var(--primary), var(--primary-dark)); padding: 1.3rem; text-align: center; }
+        .cta-strip a { color: var(--secondary); font-size: 1.5rem; font-weight: 800; text-decoration: none; display: inline-flex; align-items: center; gap: 12px; transition: transform 0.3s; }
+        .cta-strip a:hover { transform: scale(1.05); }
+        .cta-strip .sub { font-size: 1rem; font-weight: 600; opacity: 0.8; }
+        .section { padding: 5rem 1rem; }
+        .section-alt { background: var(--white); }
+        .section-dark { background: var(--secondary); color: var(--white); }
+        .section-header { text-align: center; margin-bottom: 3rem; }
+        .section-header h2 { font-size: 2.5rem; font-weight: 800; color: var(--secondary); margin-bottom: 0.5rem; }
+        .section-dark .section-header h2 { color: var(--white); }
+        .section-header p { color: #666; font-size: 1.1rem; }
+        .section-dark .section-header p { color: rgba(255,255,255,0.6); }
+        .section-header .gold { color: var(--primary); }
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.8rem; max-width: 1200px; margin: 0 auto; }
+        .service-card { background: var(--white); border-radius: 20px; padding: 2.5rem 2rem; text-align: center; box-shadow: var(--shadow); transition: all 0.4s ease; border: 1px solid rgba(0,0,0,0.04); position: relative; overflow: hidden; }
+        .service-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, var(--primary), var(--accent)); transform: scaleX(0); transition: transform 0.4s; }
+        .service-card:hover::before { transform: scaleX(1); }
+        .service-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-hover); }
+        .service-icon { width: 75px; height: 75px; border-radius: 18px; background: linear-gradient(135deg, var(--primary), var(--primary-dark)); display: flex; align-items: center; justify-content: center; margin: 0 auto 1.3rem; font-size: 1.8rem; color: var(--secondary); box-shadow: 0 8px 25px rgba(200,164,78,0.3); }
+        .service-card h3 { font-size: 1.25rem; font-weight: 800; color: var(--secondary); margin-bottom: 0.7rem; }
+        .service-card p { color: #666; font-size: 0.95rem; line-height: 1.7; }
+        .about-content { max-width: 900px; margin: 0 auto; text-align: center; }
+        .about-content p { font-size: 1.1rem; color: #555; line-height: 2; margin-bottom: 2rem; }
+        .about-stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1.5rem; max-width: 800px; margin: 0 auto; }
+        .stat-item { background: var(--light); border-radius: 16px; padding: 1.8rem 1rem; text-align: center; border: 1px solid rgba(200,164,78,0.1); transition: all 0.3s; }
+        .stat-item:hover { border-color: var(--primary); transform: translateY(-4px); }
+        .stat-number { font-size: 2.2rem; font-weight: 900; color: var(--primary); line-height: 1; }
+        .stat-label { font-size: 1rem; font-weight: 700; color: var(--secondary); margin-top: 0.4rem; }
+        .contact-section { max-width: 700px; margin: 0 auto; }
+        .contact-card { background: var(--white); border-radius: 24px; padding: 2.5rem; box-shadow: var(--shadow); border: 1px solid rgba(200,164,78,0.1); }
+        .contact-info { text-align: center; margin-bottom: 2rem; padding-bottom: 2rem; border-bottom: 2px solid var(--light); }
+        .contact-info h3 { font-size: 1.5rem; font-weight: 800; color: var(--secondary); margin-bottom: 0.5rem; }
+        .contact-info p { color: #888; }
+        .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+        @media (max-width: 600px) { .contact-grid { grid-template-columns: 1fr; } }
+        .contact-box { display: flex; align-items: center; gap: 1rem; padding: 1.2rem 1.5rem; border-radius: 14px; background: var(--light); text-decoration: none; color: var(--secondary); transition: all 0.3s; border: 2px solid transparent; }
+        .contact-box:hover { border-color: var(--primary); background: rgba(200,164,78,0.05); transform: translateY(-3px); }
+        .contact-box-icon { width: 50px; height: 50px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.3rem; color: white; flex-shrink: 0; }
+        .contact-box-text { flex: 1; }
+        .contact-box-text .title { font-weight: 800; font-size: 1rem; }
+        .contact-box-text .sub { font-size: 0.85rem; color: #888; }
+        .contact-form { margin-top: 2rem; }
+        .contact-form h4 { text-align: center; margin-bottom: 1.2rem; font-size: 1.2rem; color: var(--secondary); }
+        .form-row { display: flex; gap: 1rem; }
+        @media (max-width: 600px) { .form-row { flex-direction: column; } }
+        .form-group { margin-bottom: 1.2rem; flex: 1; }
+        .form-group input, .form-group textarea, .form-group select { width: 100%; padding: 14px 18px; border: 2px solid #e0e0e0; border-radius: 12px; font-size: 1rem; font-family: 'Cairo', sans-serif; transition: all 0.3s; background: var(--light); }
+        .form-group input:focus, .form-group textarea:focus, .form-group select:focus { outline: none; border-color: var(--primary); box-shadow: 0 0 0 4px rgba(200,164,78,0.1); }
+        .form-group textarea { min-height: 120px; resize: vertical; }
+        .btn-wa { width: 100%; padding: 16px; border: none; border-radius: 12px; background: linear-gradient(135deg, #25d366, #128c7e); color: white; font-size: 1.1rem; font-weight: 800; font-family: 'Cairo', sans-serif; cursor: pointer; transition: all 0.3s; }
+        .btn-wa:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(37,211,102,0.3); }
+        .btn-email { width: 100%; padding: 16px; border: none; border-radius: 12px; background: linear-gradient(135deg, var(--primary), var(--primary-dark)); color: var(--secondary); font-size: 1.1rem; font-weight: 800; font-family: 'Cairo', sans-serif; cursor: pointer; transition: all 0.3s; }
+        .btn-email:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(200,164,78,0.3); }
+        .footer { background: var(--dark); color: var(--white); padding: 3rem 1rem 1.5rem; text-align: center; }
+        .footer-brand { font-size: 1.8rem; font-weight: 900; color: var(--primary); margin-bottom: 0.5rem; }
+        .footer-links { display: flex; justify-content: center; gap: 2rem; margin: 1.5rem 0; flex-wrap: wrap; }
+        .footer-links a { color: rgba(255,255,255,0.6); text-decoration: none; font-weight: 600; transition: color 0.3s; }
+        .footer-links a:hover { color: var(--accent); }
+        .footer-copy { margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.08); font-size: 0.9rem; color: rgba(255,255,255,0.4); }
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2rem; }
+            .hero-subtitle { font-size: 1rem; }
+            .hero-features { gap: 1rem; }
+            .btn { padding: 14px 24px; font-size: 0.95rem; }
+            .section-header h2 { font-size: 1.8rem; }
+            .services-grid { grid-template-columns: 1fr; }
+            .cta-strip a { font-size: 1.1rem; }
+            .cta-strip .sub { font-size: 0.85rem; }
         }
     </style>
 </head>
 <body>
 
-<!-- CTA Strip 1 -->
-<div class="cta-strip">
-    <span style="color:#0a1628;font-weight:600;margin-left:4px;">استفد من خدماتي عبر</span>
-    <a href="https://khamsat.com/?r=954398" target="_blank" rel="noopener">خمسات</a>
-    <span class="sep">•</span>
-    <span style="color:#0a1628;">أو عبر</span>
-    <a href="https://bit.ly/4wJN6ch" target="_blank" rel="noopener">نفذلي</a>
-    <span class="sep">•</span>
-    <span style="color:#0a1628;">أو عبر</span>
-    <a href="https://kafiil.com/ref/3c66b7a8da" target="_blank" rel="noopener">كفيل</a>
-</div>
-
-<div class="container">
-
-    <!-- Hero -->
-    <div class="hero">
-        <h1>الجهبذ</h1>
-        <div class="subtitle">
-            للخدمات والاستشارات القانونية والتحصيل<br>
-            <span>نحمي حقوقك ونسهل معاملاتك</span> — خبرة 8+ أعوام
+    <!-- HERO -->
+    <section class="hero" id="home">
+        <div class="hero-glow"></div>
+        <div class="hero-content">
+            <div class="hero-logo"><i class="fas fa-scale-balanced"></i></div>
+            <div class="hero-badge"><i class="fas fa-circle" style="font-size: 0.5rem; color: #4ade80;"></i> خدمات قانونية واستشارية احترافية</div>
+            <h1>الجهبذ <span>للخدمات والاستشارات</span></h1>
+            <p class="hero-subtitle">استشارات قانونية وضريبية متكاملة | صياغة العقود | المعاملات الحكومية<br>تمثيل قانوني | تعويض حوادث سيارات | العلامات التجارية والعقود الدولية</p>
+            <div class="hero-features">
+                <div class="hero-feature"><i class="fas fa-check-circle"></i> استشارات دقيقة</div>
+                <div class="hero-feature"><i class="fas fa-check-circle"></i> حلول سريعة</div>
+                <div class="hero-feature"><i class="fas fa-check-circle"></i> سرية تامة</div>
+                <div class="hero-feature"><i class="fas fa-check-circle"></i> خبرة واسعة</div>
+            </div>
+            <div class="hero-cta">
+                <a href="#contact" class="btn btn-primary"><i class="fas fa-paper-plane"></i> أرسل استفسارك</a>
+                <a href="#services" class="btn btn-outline"><i class="fas fa-bars"></i> خدماتنا</a>
+            </div>
         </div>
+        <div class="scroll-indicator" onclick="document.getElementById('services').scrollIntoView({behavior:'smooth'})">
+            <i class="fas fa-chevron-down fa-2x"></i>
+        </div>
+    </section>
+
+    <!-- CTA STRIP -->
+    <div class="cta-strip">
+        <a href="https://khamsat.com/?r=954398" target="_blank">
+            <i class="fas fa-shopping-bag"></i>
+            <span>اطلب الخدمة عبر خمسات</span>
+        </a>
+        <span class="sub">أو عبر</span>
+        <a href="https://bit.ly/4wJN6ch" target="_blank">
+            <i class="fas fa-briefcase"></i>
+            <span>نفذلي</span>
+        </a>
+        <span class="sub">أو عبر</span>
+        <a href="https://kafiil.com/ref/3c66b7a8da" target="_blank">
+            <i class="fas fa-certificate"></i>
+            <span>كفيل</span>
+        </a>
     </div>
 
-    <!-- Services -->
-    <div class="section-title">خدماتنا</div>
-    <div class="services-grid">
-        <div class="service-card"><div class="icon">⚖️</div><div class="name">استشارات قانونية</div></div>
-        <div class="service-card"><div class="icon">📝</div><div class="name">صياغة العقود</div></div>
-        <div class="service-card"><div class="icon">💰</div><div class="name">تحصيل الديون</div></div>
-        <div class="service-card"><div class="icon">🏛️</div><div class="name">قضايا تعويضات</div></div>
-        <div class="service-card"><div class="icon">🛡️</div><div class="name">علامات تجارية</div></div>
-        <div class="service-card"><div class="icon">📄</div><div class="name">معاملات حكومية</div></div>
-    </div>
+    <!-- SERVICES -->
+    <section class="section" id="services">
+        <div class="section-header">
+            <h2>خدماتنا <span class="gold">المتكاملة</span></h2>
+            <p>نقدم مجموعة شاملة من الخدمات القانونية والاستشارية</p>
+        </div>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon"><i class="fas fa-gavel"></i></div>
+                <h3>الاستشارات القانونية</h3>
+                <p>استشارات قانونية متخصصة في جميع فروع القانون المصري والدولي</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon"><i class="fas fa-file-invoice"></i></div>
+                <h3>الاستشارات الضريبية</h3>
+                <p>استشارات ضريبية شاملة وتخطيط ضريبي للأفراد والشركات</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon"><i class="fas fa-file-signature"></i></div>
+                <h3>صياغة العقود</h3>
+                <p>صياغة ومراجعة جميع أنواع العقود التجارية والمدنية والدولية</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon"><i class="fas fa-landmark"></i></div>
+                <h3>المعاملات الحكومية</h3>
+                <p>إنهاء المعاملات الحكومية وتخليص الإجراءات الرسمية بكفاءة</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon"><i class="fas fa-balance-scale"></i></div>
+                <h3>القضايا والتمثيل القانوني</h3>
+                <p>تمثيل قانوني أمام المحاكم بجميع درجاتها</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon"><i class="fas fa-car-crash"></i></div>
+                <h3>تعويض حوادث السيارات</h3>
+                <p>مطالبات تعويض حوادث السيارات والحصول على كامل الحقوق</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon"><i class="fas fa-globe"></i></div>
+                <h3>العقود الدولية</h3>
+                <p>عقود التجارة الدولية والتحكيم والمنازعات العابرة للحدود</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon"><i class="fas fa-tag"></i></div>
+                <h3>العلامات التجارية</h3>
+                <p>تسجيل وحماية العلامات التجارية محلياً ودولياً</p>
+            </div>
+        </div>
+    </section>
 
-    <!-- Contact Form -->
-    <div class="section-title">تواصل معنا</div>
-    <form class="contact-form" id="contactForm">
-        <input type="text" placeholder="الاسم" required>
-        <input type="tel" placeholder="رقم الهاتف (أفضل)" required>
-        <input type="email" placeholder="البريد الإلكتروني">
-        <textarea placeholder="رسالتك — اشرح استفسارك القانوني أو الخدمة المطلوبة" required></textarea>
-        <button type="submit">إرسال الاستفسار</button>
-        <div class="cta-note">سيتم الرد خلال 24 ساعة عمل</div>
-    </form>
+    <!-- WHY US -->
+    <section class="section section-alt" id="about">
+        <div class="section-header">
+            <h2>لماذا <span class="gold">الجهبذ</span>؟</h2>
+            <p>خبرة واحترافية في تقديم الخدمات القانونية والاستشارات</p>
+        </div>
+        <div class="about-content">
+            <p>في <strong>الجهبذ للخدمات والاستشارات</strong>، نقدم خدمات قانونية واستشارية متكاملة تلبي احتياجات الأفراد والشركات. نمتلك خبرة واسعة في المجال القانوني والضريبي، ونلتزم بتقديم حلول عملية وفعالة لعملائنا بأعلى معايير المهنية والسرية.</p>
+            <div class="about-stats">
+                <div class="stat-item"><div class="stat-number">+15</div><div class="stat-label">عاماً من الخبرة</div></div>
+                <div class="stat-item"><div class="stat-number">+500</div><div class="stat-label">عميلاً موثقاً</div></div>
+                <div class="stat-item"><div class="stat-number">%95</div><div class="stat-label">نسبة نجاح القضايا</div></div>
+                <div class="stat-item"><div class="stat-number">24/7</div><div class="stat-label">دعم واستشارات</div></div>
+            </div>
+        </div>
+    </section>
 
-    <!-- CTA Strip 2 -->
-    <div class="cta-strip-2">
-        <span style="color:#aab;">تصفح خدماتي على</span>
-        <a href="https://khamsat.com/?r=954398" target="_blank" rel="noopener">خمسات</a>
-        <span class="sep">•</span>
-        <span style="color:#aab;">أو</span>
-        <a href="https://bit.ly/4wJN6ch" target="_blank" rel="noopener">نفذلي</a>
-        <span class="sep">•</span>
-        <span style="color:#aab;">أو</span>
-        <a href="https://kafiil.com/ref/3c66b7a8da" target="_blank" rel="noopener">كفيل</a>
-    </div>
+    <!-- CONTACT -->
+    <section class="section section-dark" id="contact">
+        <div class="section-header">
+            <h2>تواصل <span class="gold">معنا</span></h2>
+            <p>أرسل استفسارك وسنعاود الاتصال بك فوراً</p>
+        </div>
+        <div class="contact-section">
+            <div class="contact-card">
+                <div class="contact-form">
+                    <h4><i class="fas fa-pen" style="color: var(--primary);"></i> أرسل استفسارك</h4>
+                    <form id="contactForm">
+                        <div class="form-row">
+                            <div class="form-group"><input type="text" id="clientName" placeholder="الاسم بالكامل" required></div>
+                            <div class="form-group"><input type="tel" id="clientPhone" placeholder="رقم الهاتف"></div>
+                        </div>
+                        <div class="form-group">
+                            <select id="clientService">
+                                <option value="">اختر الخدمة</option>
+                                <option>استشارة قانونية</option><option>استشارة ضريبية</option>
+                                <option>صياغة عقود</option><option>معاملات حكومية</option>
+                                <option>قضايا وتمثيل قانوني</option><option>تعويض حوادث سيارات</option>
+                                <option>عقود دولية</option><option>علامات تجارية</option><option>أخرى</option>
+                            </select>
+                        </div>
+                        <div class="form-group"><textarea id="clientMessage" placeholder="اكتب استفسارك أو تفاصيل طلبك..." required></textarea></div>
+                        <button type="submit" class="btn-wa"><i class="fab fa-whatsapp"></i> إرسال عبر واتساب</button>
+                    </form>
+                </div>
+                <div style="text-align: center; margin-top: 1.5rem; padding-top: 1.5rem; border-top: 2px solid var(--light);">
+                    <p style="color: #888; margin-bottom: 0.8rem;">أو يمكنك طلب الخدمة مباشرة عبر</p>
+                    <div>
+                        <a href="https://khamsat.com/?r=954398" target="_blank" style="color: var(--secondary); font-weight: 800; text-decoration: none; font-size: 1.1rem; display: inline-flex; align-items: center; gap: 6px; margin: 0 8px;"><i class="fas fa-shopping-bag" style="color: var(--primary);"></i> خمسات</a>
+                        <span style="font-weight: 600; color: #aaa; font-size: 0.9rem;">أو عبر</span>
+                        <a href="https://bit.ly/4wJN6ch" target="_blank" style="color: var(--secondary); font-weight: 800; text-decoration: none; font-size: 1.1rem; display: inline-flex; align-items: center; gap: 6px; margin: 0 8px;"><i class="fas fa-briefcase" style="color: var(--primary);"></i> نفذلي</a>
+                        <span style="font-weight: 600; color: #aaa; font-size: 0.9rem;">أو عبر</span>
+                        <a href="https://kafiil.com/ref/3c66b7a8da" target="_blank" style="color: var(--secondary); font-weight: 800; text-decoration: none; font-size: 1.1rem; display: inline-flex; align-items: center; gap: 6px; margin: 0 8px;"><i class="fas fa-certificate" style="color: var(--primary);"></i> كفيل</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <!-- Footer -->
-    <div class="footer">
-        <a href="https://mustafa10020.github.io/aljehbiz/" target="_blank">الجهبذ للخدمات والاستشارات</a> © 2026
-    </div>
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-brand">الجهبذ للخدمات والاستشارات</div>
+        <p style="color: rgba(255,255,255,0.5); margin: 0.8rem 0 1.5rem;">حلول قانونية واستشارية احترافية</p>
+        <div class="footer-links">
+            <a href="#home">الرئيسية</a>
+            <a href="#services">الخدمات</a>
+            <a href="#about">لماذا نحن</a>
+            <a href="#contact">اتصل بنا</a>
+        </div>
+        <div class="footer-copy"><i class="fas fa-copyright"></i> 2026 الجهبذ للخدمات والاستشارات - جميع الحقوق محفوظة</div>
+    </footer>
 
-</div>
-
-<script>
-document.getElementById('contactForm').addEventListener('submit', function(e) {
-    e.preventDefault();
-    const btn = this.querySelector('button');
-    btn.textContent = 'جاري الإرسال...';
-    btn.disabled = true;
-    const formData = {
-        name: this.querySelector('input[type="text"]').value,
-        phone: this.querySelector('input[type="tel"]').value,
-        email: this.querySelector('input[type="email"]').value,
-        message: this.querySelector('textarea').value
-    };
-    fetch('https://formspree.io/f/mldjwyzo', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData)
-    })
-    .then(r => {
-        if (r.ok) {
-            btn.textContent = 'تم الإرسال ✅';
-            this.reset();
-        } else {
-            btn.textContent = 'فشل الإرسال، حاول مرة أخرى';
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const name = document.getElementById('clientName').value.trim();
+            const phone = document.getElementById('clientPhone').value.trim();
+            const service = document.getElementById('clientService').value;
+            const msg = document.getElementById('clientMessage').value.trim();
+            if (!name || !msg) { showToast('يرجى ملء الاسم والرسالة'); return; }
+            const waMsg = 'مرحباً، أنا ' + name + '%0A' + (phone ? 'هاتفي: ' + phone + '%0A' : '') + 'الخدمة: ' + (service || 'غير محدد') + '%0Aالرسالة: ' + msg;
+            window.open('https://wa.me/201001507511?text=' + waMsg, '_blank');
+            showToast('تم تحويلك إلى واتساب');
+        });
+        function showToast(m) {
+            const t = document.createElement('div');
+            t.style.cssText = 'position:fixed;bottom:100px;left:50%;transform:translateX(-50%);background:var(--secondary);color:var(--white);padding:14px 28px;border-radius:12px;font-weight:700;z-index:3000;animation:fadeInUp 0.3s ease;box-shadow:0 10px 30px rgba(0,0,0,0.2);font-family:Cairo,sans-serif;';
+            t.textContent = m; document.body.appendChild(t);
+            setTimeout(() => { t.style.opacity = '0'; t.style.transition = 'opacity 0.3s'; setTimeout(() => t.remove(), 300); }, 3000);
         }
-    })
-    .catch(() => {
-        btn.textContent = 'خطأ في الاتصال';
-    })
-    .finally(() => {
-        setTimeout(() => { btn.textContent = 'إرسال الاستفسار'; btn.disabled = false; }, 4000);
-    });
-});
-</script>
+    </script>
+
 </body>
 </html>
