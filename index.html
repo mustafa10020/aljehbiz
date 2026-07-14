@@ -133,6 +133,9 @@
         .btn-email:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(200,164,78,0.3); }
         .footer { background: var(--dark); color: var(--white); padding: 3rem 1rem 1.5rem; text-align: center; }
         .footer-brand { font-size: 1.8rem; font-weight: 900; color: var(--primary); margin-bottom: 0.5rem; }
+        .nav-links { display: flex; justify-content: center; gap: 1.5rem; padding: 1rem; flex-wrap: wrap; background: rgba(0,0,0,0.2); }
+        .nav-links a { color: rgba(255,255,255,0.7); text-decoration: none; font-weight: 600; font-size: 0.95rem; transition: color 0.3s; }
+        .nav-links a:hover { color: var(--accent); }
         .footer-links { display: flex; justify-content: center; gap: 2rem; margin: 1.5rem 0; flex-wrap: wrap; }
         .footer-links a { color: rgba(255,255,255,0.6); text-decoration: none; font-weight: 600; transition: color 0.3s; }
         .footer-links a:hover { color: var(--accent); }
@@ -175,6 +178,15 @@
             <i class="fas fa-chevron-down fa-2x"></i>
         </div>
     </section>
+    <div class="nav-links">
+        <a href="tahseel/">تحصيل ديون</a>
+        <a href="ogood/">صياغة عقود</a>
+        <a href="taweed/">تعويض حوادث</a>
+        <a href="esteharat/">استشارات</a>
+        <a href="alamaat/">علامات تجارية</a>
+        <a href="hokomya/">معاملات حكومية</a>
+        <a href="blog/">المدونة</a>
+    </div>
 
     <!-- CTA STRIP -->
     <div class="cta-strip">
@@ -201,46 +213,46 @@
             <p>نقدم مجموعة شاملة من الخدمات القانونية والاستشارية</p>
         </div>
         <div class="services-grid">
-            <div class="service-card">
+            <a href="esteharat/" class="service-card" style="text-decoration:none;display:block">
                 <div class="service-icon"><i class="fas fa-gavel"></i></div>
                 <h3>الاستشارات القانونية</h3>
                 <p>استشارات قانونية متخصصة في جميع فروع القانون المصري والدولي</p>
-            </div>
-            <div class="service-card">
+            </a>
+            <a href="esteharat/" class="service-card" style="text-decoration:none;display:block">
                 <div class="service-icon"><i class="fas fa-file-invoice"></i></div>
                 <h3>الاستشارات الضريبية</h3>
                 <p>استشارات ضريبية شاملة وتخطيط ضريبي للأفراد والشركات</p>
-            </div>
-            <div class="service-card">
+            </a>
+            <a href="ogood/" class="service-card" style="text-decoration:none;display:block">
                 <div class="service-icon"><i class="fas fa-file-signature"></i></div>
                 <h3>صياغة العقود</h3>
                 <p>صياغة ومراجعة جميع أنواع العقود التجارية والمدنية والدولية</p>
-            </div>
-            <div class="service-card">
+            </a>
+            <a href="hokomya/" class="service-card" style="text-decoration:none;display:block">
                 <div class="service-icon"><i class="fas fa-landmark"></i></div>
                 <h3>المعاملات الحكومية</h3>
                 <p>إنهاء المعاملات الحكومية وتخليص الإجراءات الرسمية بكفاءة</p>
-            </div>
-            <div class="service-card">
+            </a>
+            <a href="tahseel/" class="service-card" style="text-decoration:none;display:block">
                 <div class="service-icon"><i class="fas fa-balance-scale"></i></div>
                 <h3>القضايا والتمثيل القانوني</h3>
                 <p>تمثيل قانوني أمام المحاكم بجميع درجاتها</p>
-            </div>
-            <div class="service-card">
+            </a>
+            <a href="taweed/" class="service-card" style="text-decoration:none;display:block">
                 <div class="service-icon"><i class="fas fa-car-crash"></i></div>
                 <h3>تعويض حوادث السيارات</h3>
                 <p>مطالبات تعويض حوادث السيارات والحصول على كامل الحقوق</p>
-            </div>
-            <div class="service-card">
+            </a>
+            <a href="ogood/" class="service-card" style="text-decoration:none;display:block">
                 <div class="service-icon"><i class="fas fa-globe"></i></div>
                 <h3>العقود الدولية</h3>
                 <p>عقود التجارة الدولية والتحكيم والمنازعات العابرة للحدود</p>
-            </div>
-            <div class="service-card">
+            </a>
+            <a href="alamaat/" class="service-card" style="text-decoration:none;display:block">
                 <div class="service-icon"><i class="fas fa-tag"></i></div>
                 <h3>العلامات التجارية</h3>
                 <p>تسجيل وحماية العلامات التجارية محلياً ودولياً</p>
-            </div>
+            </a>
         </div>
     </section>
 
