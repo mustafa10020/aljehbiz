@@ -188,6 +188,7 @@
         <a href="alamaat/">علامات تجارية</a>
         <a href="hokomya/">معاملات حكومية</a>
         <a href="blog/">المدونة</a>
+        <a href="faq/">الأسئلة الشائعة</a>
     </div>
 
     <!-- CTA STRIP -->
@@ -317,6 +318,18 @@
         </div>
     </section>
 
+    <section class="section section-alt" id="newsletter" style="padding:3rem 1rem;">
+        <div style="max-width:550px;margin:0 auto;text-align:center;">
+            <h2 style="font-size:1.5rem;font-weight:800;color:var(--secondary);margin-bottom:.5rem;">📩 النشرة القانونية</h2>
+            <p style="color:#666;margin-bottom:1.5rem;">أسبوعياً — نصائح قانونية، مقالات جديدة، وعروض حصرية. اشترك مجاناً.</p>
+            <form id="newsletterForm" style="display:flex;gap:.8rem;flex-wrap:wrap;justify-content:center;">
+                <input type="email" id="newsletterEmail" placeholder="بريدك الإلكتروني" required style="flex:1;min-width:220px;padding:12px 16px;border:2px solid #e0e0e0;border-radius:10px;font-size:1rem;font-family:'Cairo',sans-serif;">
+                <button type="submit" style="padding:12px 28px;border:none;border-radius:10px;background:linear-gradient(135deg,#c8a44e,#a8842e);color:#0a1628;font-size:1rem;font-weight:800;font-family:'Cairo',sans-serif;cursor:pointer;transition:.3s;">اشتراك</button>
+            </form>
+            <p id="newsletterMsg" style="font-size:.9rem;margin-top:.5rem;color:#888;display:none;"></p>
+        </div>
+    </section>
+
     <!-- FOOTER -->
     <footer class="footer">
         <div class="footer-brand">الجهبذ للخدمات والاستشارات</div>
@@ -326,6 +339,8 @@
             <a href="#services">الخدمات</a>
             <a href="#about">لماذا نحن</a>
             <a href="#contact">اتصل بنا</a>
+            <a href="faq/">الأسئلة الشائعة</a>
+            <a href="blog/">المدونة</a>
         </div>
         <div class="footer-copy"><i class="fas fa-copyright"></i> 2026 الجهبذ للخدمات والاستشارات - جميع الحقوق محفوظة</div>
     </footer>
@@ -341,6 +356,17 @@
             const waMsg = 'مرحباً، أنا ' + name + '%0A' + (phone ? 'هاتفي: ' + phone + '%0A' : '') + 'الخدمة: ' + (service || 'غير محدد') + '%0Aالرسالة: ' + msg;
             window.open('https://wa.me/201001507511?text=' + waMsg, '_blank');
             showToast('تم تحويلك إلى واتساب');
+        });
+        document.getElementById('newsletterForm').addEventListener('submit', function(e) {
+            e.preventDefault(); const email = document.getElementById('newsletterEmail').value.trim();
+            const btn = this.querySelector('button'), msg = document.getElementById('newsletterMsg');
+            btn.textContent = 'جاري...'; btn.disabled = true;
+            fetch('https://formspree.io/f/mldjwyzo', {
+                method: 'POST', headers: {'Content-Type':'application/json'},
+                body: JSON.stringify({email: email, _subject: 'اشتراك جديد في النشرة القانونية'})
+            }).then(r => { if(r.ok) { msg.textContent = '✅ تم الاشتراك! شكراً لك.'; msg.style.color = '#4ade80'; this.reset(); } else { msg.textContent = '❌ حدث خطأ، حاول مرة أخرى'; msg.style.color = '#f87171'; } })
+            .catch(() => { msg.textContent = '❌ خطأ في الاتصال'; msg.style.color = '#f87171'; })
+            .finally(() => { msg.style.display = 'block'; btn.textContent = 'اشتراك'; btn.disabled = false; });
         });
         function showToast(m) {
             const t = document.createElement('div');
