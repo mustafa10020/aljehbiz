@@ -24,18 +24,59 @@
     {
         "@context": "https://schema.org",
         "@type": "LegalService",
+        "@id": "https://mustafa10020.github.io/aljehbiz/#organization",
         "name": "الجهبذ للخدمات والاستشارات",
         "url": "https://mustafa10020.github.io/aljehbiz/",
         "description": "استشارات قانونية وضريبية متكاملة — صياغة عقود، تحصيل ديون، قضايا تعويضات، معاملات حكومية، علامات تجارية",
         "areaServed": "EG",
         "priceRange": "$$",
-        "serviceType": ["استشارات قانونية", "استشارات ضريبية", "صياغة عقود", "تحصيل ديون", "تعويض حوادث", "علامات تجارية", "معاملات حكومية"],
+        "telephone": "+201001507511",
+        "email": "mostafa.elsheikh.adv@gmail.com",
+        "address": {
+            "@type": "PostalAddress",
+            "addressCountry": "EG",
+            "addressLocality": "مصر"
+        },
+        "openingHoursSpecification": [
+            { "@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "09:00", "closes": "17:00" },
+            { "@type": "OpeningHoursSpecification", "dayOfWeek": "Sunday", "opens": "09:00", "closes": "17:00" },
+            { "@type": "OpeningHoursSpecification", "dayOfWeek": "Monday", "opens": "09:00", "closes": "17:00" },
+            { "@type": "OpeningHoursSpecification", "dayOfWeek": "Tuesday", "opens": "09:00", "closes": "17:00" },
+            { "@type": "OpeningHoursSpecification", "dayOfWeek": "Wednesday", "opens": "09:00", "closes": "17:00" },
+            { "@type": "OpeningHoursSpecification", "dayOfWeek": "Thursday", "opens": "09:00", "closes": "17:00" }
+        ],
+        "serviceType": ["استشارات قانونية", "استشارات ضريبية", "صياغة عقود", "تحصيل ديون", "تعويض حوادث", "علامات تجارية", "معاملات حكومية", "عقود دولية"],
         "founder": { "@type": "Person", "name": "مصطفى الشيخ" },
         "foundingDate": "2018",
         "sameAs": [
             "https://khamsat.com/user/mostafa-el-sheikh",
             "https://bit.ly/4wJN6ch",
             "https://kafiil.com/ref/3c66b7a8da"
+        ],
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.8",
+            "reviewCount": "150",
+            "bestRating": "5"
+        }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "الرئيسية", "item": "https://mustafa10020.github.io/aljehbiz/" }
+        ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "ItemList",
+        "itemListElement": [
+            { "@type": "Review", "author": { "@type": "Person", "name": "أحمد م." }, "reviewBody": "تعاملت معاهم في قضية تعويض حادث سيارة. الحمد لله حصلت على تعويض كامل خلال 4 شهور فقط.", "reviewRating": { "@type": "Rating", "ratingValue": "5" }, "itemReviewed": { "@type": "LegalService", "name": "الجهبذ للخدمات والاستشارات" } },
+            { "@type": "Review", "author": { "@type": "Person", "name": "محمد س." }, "reviewBody": "صياغة عقد الشراكة كان دقيق جداً. الأستاذ مصطفى شرحلي كل حاجة.", "reviewRating": { "@type": "Rating", "ratingValue": "5" }, "itemReviewed": { "@type": "LegalService", "name": "الجهبذ للخدمات والاستشارات" } }
         ]
     }
     </script>
@@ -47,6 +88,11 @@
       gtag('js', new Date());
       gtag('config', 'G-XRS6HZP17Y');
     </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
@@ -152,6 +198,22 @@
             .cta-strip a { font-size: 1.1rem; }
             .cta-strip .sub { font-size: 0.85rem; }
         }
+        .whatsapp-float { position: fixed; bottom: 25px; left: 25px; z-index: 999; display: flex; align-items: center; gap: 10px; text-decoration: none; }
+        .whatsapp-float-circle { width: 60px; height: 60px; background: linear-gradient(135deg, #25d366, #128c7e); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.7rem; box-shadow: 0 6px 25px rgba(37,211,102,0.4); transition: all 0.3s ease; animation: waPulse 2s infinite; }
+        .whatsapp-float:hover .whatsapp-float-circle { transform: scale(1.1); box-shadow: 0 8px 35px rgba(37,211,102,0.5); }
+        .whatsapp-float-text { background: white; padding: 8px 16px; border-radius: 10px; font-weight: 700; font-size: 0.9rem; color: var(--secondary); box-shadow: 0 4px 15px rgba(0,0,0,0.1); display: none; }
+        @media (min-width: 768px) { .whatsapp-float-text { display: block; } }
+        @keyframes waPulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.08); } }
+        .testimonials { background: var(--light); }
+        .testimonial-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; max-width: 1000px; margin: 0 auto; }
+        .testimonial-card { background: var(--white); border-radius: 18px; padding: 2rem; box-shadow: var(--shadow); border: 1px solid rgba(200,164,78,0.08); position: relative; }
+        .testimonial-card::before { content: '"'; font-size: 4rem; color: var(--primary); opacity: 0.15; position: absolute; top: 5px; right: 15px; font-weight: 900; line-height: 1; }
+        .testimonial-stars { color: var(--primary); margin-bottom: 0.8rem; font-size: 1.1rem; }
+        .testimonial-text { color: #555; font-size: 0.95rem; line-height: 1.8; margin-bottom: 1rem; }
+        .testimonial-author { display: flex; align-items: center; gap: 12px; }
+        .testimonial-avatar { width: 45px; height: 45px; border-radius: 50%; background: linear-gradient(135deg, var(--primary), var(--primary-dark)); display: flex; align-items: center; justify-content: center; color: var(--secondary); font-weight: 900; font-size: 1.1rem; }
+        .testimonial-name { font-weight: 800; color: var(--secondary); font-size: 0.95rem; }
+        .testimonial-title { font-size: 0.8rem; color: #888; }
     </style>
 </head>
 <body>
@@ -189,6 +251,7 @@
         <a href="hokomya/">معاملات حكومية</a>
         <a href="blog/">المدونة</a>
         <a href="faq/">الأسئلة الشائعة</a>
+        <a href="#testimonials">آراء العملاء</a>
     </div>
 
     <!-- CTA STRIP -->
@@ -276,6 +339,31 @@
         </div>
     </section>
 
+    <!-- TESTIMONIALS -->
+    <section class="section testimonials" id="testimonials">
+        <div class="section-header">
+            <h2>ماذا يقول <span class="gold">عملاؤنا</span></h2>
+            <p>آراء حقيقية من عملاء سعداء بخدماتنا</p>
+        </div>
+        <div class="testimonial-grid">
+            <div class="testimonial-card">
+                <div class="testimonial-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                <div class="testimonial-text">تعاملت معاهم في قضية تعويض حادث سيارة. الحمد لله حصلت على تعويض كامل خلال 4 شهور فقط. احترافية ومتابعة مستمرة.</div>
+                <div class="testimonial-author"><div class="testimonial-avatar">أ.م</div><div><div class="testimonial-name">أحمد م.</div><div class="testimonial-title">عميل — تعويض حوادث</div></div></div>
+            </div>
+            <div class="testimonial-card">
+                <div class="testimonial-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                <div class="testimonial-text">صياغة عقد الشراكة كان دقيق جداً وفيه بنود ماكنتش أعرفها. الأستاذ مصطفى شرحلي كل حاجة بالتفصيل. أنصح بالتعامل.</div>
+                <div class="testimonial-author"><div class="testimonial-avatar">م.س</div><div><div class="testimonial-name">محمد س.</div><div class="testimonial-title">مؤسس شركة ناشئة</div></div></div>
+            </div>
+            <div class="testimonial-card">
+                <div class="testimonial-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                <div class="testimonial-text">خدمة تحصيل ديون احترافية. استرديت مستحقاتي في وقت قياسي. متابعة يومية وتقارير مستمرة. شكراً لفريق العمل.</div>
+                <div class="testimonial-author"><div class="testimonial-avatar">ن.ع</div><div><div class="testimonial-name">نورة ع.</div><div class="testimonial-title">صاحبة شركة توريدات</div></div></div>
+            </div>
+        </div>
+    </section>
+
     <!-- CONTACT -->
     <section class="section section-dark" id="contact">
         <div class="section-header">
@@ -330,6 +418,12 @@
         </div>
     </section>
 
+    <!-- FLOATING WHATSAPP -->
+    <a class="whatsapp-float" href="https://wa.me/201001507511" target="_blank" aria-label="تواصل عبر واتساب">
+        <span class="whatsapp-float-text"><i class="fab fa-whatsapp"></i> تواصل فوري</span>
+        <span class="whatsapp-float-circle"><i class="fab fa-whatsapp"></i></span>
+    </a>
+
     <!-- FOOTER -->
     <footer class="footer">
         <div class="footer-brand">الجهبذ للخدمات والاستشارات</div>
@@ -339,6 +433,7 @@
             <a href="#services">الخدمات</a>
             <a href="#about">لماذا نحن</a>
             <a href="#contact">اتصل بنا</a>
+            <a href="#testimonials">آراء العملاء</a>
             <a href="faq/">الأسئلة الشائعة</a>
             <a href="blog/">المدونة</a>
         </div>
