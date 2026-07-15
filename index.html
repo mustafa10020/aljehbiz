@@ -452,24 +452,24 @@
             window.open('https://wa.me/201001507511?text=' + waMsg, '_blank');
             showToast('تم تحويلك إلى واتساب');
         });
+        var SCRIPT_URL = '';
         document.getElementById('newsletterForm').addEventListener('submit', function(e) {
-            e.preventDefault(); const email = document.getElementById('newsletterEmail').value.trim();
-            const btn = this.querySelector('button'), msg = document.getElementById('newsletterMsg');
+            e.preventDefault(); var email = document.getElementById('newsletterEmail').value.trim();
+            var btn = this.querySelector('button'), msg = document.getElementById('newsletterMsg');
             if (!email) return;
             btn.textContent = 'جاري...'; btn.disabled = true;
-            fetch('https://formsubmit.co/ajax/hanihusseinlawyer@gmail.com', {
-                method: 'POST', headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-                body: JSON.stringify({ email: email, _subject: 'اشتراك جديد في النشرة القانونية - الجهبذ' })
-            }).then(function(r) {
-                if (r.ok) { msg.textContent = '✅ تم الاشتراك! شكراً لك.'; msg.style.color = '#4ade80'; document.getElementById('newsletterEmail').value = ''; }
-                else { msg.textContent = '❌ حدث خطأ، حاول مرة أخرى'; msg.style.color = '#f87171'; }
-            }).catch(function() {
-                window.open('https://wa.me/201001507511?text=مرحباً، أريد الاشتراك في النشرة القانونية%0Aبريدي الإلكتروني: ' + email, '_blank');
-                msg.textContent = '✅ تم تحويلك إلى واتساب';
-                msg.style.color = '#4ade80';
-            }).finally(function() {
-                msg.style.display = 'block'; btn.textContent = 'اشتراك'; btn.disabled = false;
-            });
+            if (SCRIPT_URL) {
+                fetch(SCRIPT_URL, { method: 'POST', body: JSON.stringify({ email: email }), headers: { 'Content-Type': 'application/json' } })
+                .then(function(r) { return r.json(); })
+                .then(function(d) { if (d.success) { msg.textContent = '✅ تم الاشتراك! شكراً لك.'; msg.style.color = '#4ade80'; document.getElementById('newsletterEmail').value = ''; } else { throw new Error(); } })
+                .catch(function() { msg.textContent = '❌ فشل الحفظ'; msg.style.color = '#f87171'; })
+                .finally(function() { msg.style.display = 'block'; btn.textContent = 'اشتراك'; btn.disabled = false; });
+            } else {
+                fetch('https://formsubmit.co/ajax/hanihusseinlawyer@gmail.com', { method: 'POST', headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' }, body: JSON.stringify({ email: email, _subject: 'اشتراك جديد في النشرة القانونية - الجهبذ' }) })
+                .then(function(r) { if (r.ok) { msg.textContent = '✅ تم الاشتراك! شكراً لك.'; msg.style.color = '#4ade80'; document.getElementById('newsletterEmail').value = ''; } else { throw new Error(); } })
+                .catch(function() { window.open('https://wa.me/201001507511?text=مرحباً، أريد الاشتراك في النشرة القانونية%0Aبريدي الإلكتروني: ' + email, '_blank'); msg.textContent = '✅ تم تحويلك إلى واتساب'; msg.style.color = '#4ade80'; })
+                .finally(function() { msg.style.display = 'block'; btn.textContent = 'اشتراك'; btn.disabled = false; });
+            }
         });
         function showToast(m) {
             const t = document.createElement('div');
