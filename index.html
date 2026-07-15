@@ -452,15 +452,23 @@
             window.open('https://wa.me/201001507511?text=' + waMsg, '_blank');
             showToast('تم تحويلك إلى واتساب');
         });
+        var NEWSLETTER_SCRIPT_URL = ''; // حط رابط Google Apps Script هنا بعد ما تنشره
         document.getElementById('newsletterForm').addEventListener('submit', function(e) {
             e.preventDefault(); const email = document.getElementById('newsletterEmail').value.trim();
+            const btn = this.querySelector('button'), msg = document.getElementById('newsletterMsg');
             if (!email) return;
-            const waMsg = 'مرحباً، أريد الاشتراك في النشرة القانونية%0Aبريدي الإلكتروني: ' + email;
-            window.open('https://wa.me/201001507511?text=' + waMsg, '_blank');
-            document.getElementById('newsletterMsg').textContent = '✅ تم تحويلك إلى واتساب لتأكيد الاشتراك';
-            document.getElementById('newsletterMsg').style.display = 'block';
-            document.getElementById('newsletterMsg').style.color = '#4ade80';
-            this.reset();
+            if (NEWSLETTER_SCRIPT_URL) {
+                btn.textContent = 'جاري...'; btn.disabled = true;
+                fetch(NEWSLETTER_SCRIPT_URL, { method: 'POST', body: JSON.stringify({ email: email }), headers: { 'Content-Type': 'application/json' } })
+                .then(r => r.json()).then(d => { msg.textContent = d.success ? '✅ تم الاشتراك! شكراً لك.' : '❌ ' + (d.error || 'حدث خطأ'); msg.style.color = d.success ? '#4ade80' : '#f87171'; this.reset(); })
+                .catch(function() { msg.textContent = '❌ تعذر الاتصال'; msg.style.color = '#f87171'; })
+                .finally(function() { msg.style.display = 'block'; btn.textContent = 'اشتراك'; btn.disabled = false; });
+            } else {
+                window.open('https://wa.me/201001507511?text=مرحباً، أريد الاشتراك في النشرة القانونية%0Aبريدي الإلكتروني: ' + email, '_blank');
+                msg.textContent = '✅ تم تحويلك إلى واتساب — سنضيفك للقائمة';
+                msg.style.display = 'block'; msg.style.color = '#4ade80';
+                this.reset();
+            }
         });
         function showToast(m) {
             const t = document.createElement('div');
