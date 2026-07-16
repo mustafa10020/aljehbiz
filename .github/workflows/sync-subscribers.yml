@@ -1,20 +1,26 @@
 name: Sync Subscribers
 on:
   schedule:
-    - cron: '*/10 * * * *'
+    - cron: '*/30 * * * *'
   workflow_dispatch:
+permissions:
+  contents: write
 jobs:
   sync:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - name: Fetch from jsonblob
+      - uses: actions/checkout@v4
+      - name: Fetch subscribers from jsonblob
         run: |
-          curl -s "https://jsonblob.com/api/jsonBlob/019f6825-033f-7eaf-8bed-fa4b914c607c" -o subscribers.json
+          curl -s --fail "https://jsonblob.com/api/jsonBlob/019f6825-033f-7eaf-8bed-fa4b914c607c" -o subscribers.json || echo "[]" > subscribers.json
       - name: Commit if changed
         run: |
-          git config user.name "aljehbiz-bot"
-          git config user.email "bot@aljehbiz.com"
-          git add subscribers.json
-          git diff --cached --quiet || git commit -m "sync: تحديث بيانات المشتركين"
-          git push
+          if [ -f subscribers.json ]; then
+            git config user.name "aljehbiz-bot"
+            git config user.email "bot@aljehbiz.com"
+            git add subscribers.json
+            if ! git diff --cached --quiet; then
+              git commit -m "sync: update subscribers"
+              git push
+            fi
+          fi
